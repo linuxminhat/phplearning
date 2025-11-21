@@ -1,0 +1,81 @@
+========================================
+HƯỚNG DẪN CÀI ĐẶT
+HTPLUS Appointment System
+========================================
+
+BƯỚC 1: CÀI ĐẶT XAMPP
+----------------------
+1. Tải XAMPP từ: https://www.apachefriends.org/
+2. Cài đặt XAMPP (khuyến nghị: C:\xampp)
+3. Mở XAMPP Control Panel
+4. Khởi động Apache và MySQL
+
+BƯỚC 2: CẤU HÌNH DATABASE
+--------------------------
+1. Mở trình duyệt, truy cập: http://localhost/phpmyadmin
+2. Click vào tab "SQL"
+3. Copy toàn bộ nội dung file: database/init.sql
+4. Paste vào ô SQL và click "Go" để chạy
+5. Hoặc import trực tiếp file init.sql
+
+BƯỚC 3: CẤU HÌNH PROJECT
+------------------------
+1. Copy thư mục "miniproject" vào: C:\xampp\htdocs\
+   Hoặc nếu đã đặt ở C:\miniproject, cấu hình virtual host
+
+2. Nếu đặt trong htdocs, truy cập:
+   http://localhost/miniproject/
+
+3. Kiểm tra file config/database.php:
+   - DB_HOST: localhost
+   - DB_USER: root  
+   - DB_PASS: (để trống)
+   - DB_NAME: htplus_appointment
+
+BƯỚC 4: ĐĂNG NHẬP
+-----------------
+Sau khi import database, sử dụng các tài khoản sau:
+
+ADMIN:
+- Username: admin
+- Password: password123
+- Quyền: Quản lý users và bác sĩ
+
+NHÂN VIÊN:
+- Username: employee1
+- Password: password123
+- Quyền: Đăng ký lịch khám, chỉnh sửa profile
+
+BÁC SĨ:
+- Username: doctor1
+- Password: password123
+- Quyền: Xem lịch khám, chỉnh sửa profile
+
+LƯU Ý:
+------
+- Đảm bảo PHP version >= 7.0
+- Extension mysqli phải được bật
+- Tất cả mật khẩu mặc định: password123
+- Trong production, cần bảo mật tốt hơn
+
+CẤU TRÚC THƯ MỤC:
+-----------------
+miniproject/
+├── api/              # API endpoints (AJAX)
+├── config/           # Cấu hình database
+├── css/              # Stylesheets
+├── database/         # SQL scripts
+├── js/               # JavaScript files
+├── index.php         # Trang đăng nhập
+├── employee_dashboard.php
+├── doctor_dashboard.php
+└── admin_dashboard.php
+
+HỖ TRỢ:
+-------
+Nếu gặp lỗi, kiểm tra:
+1. Apache và MySQL đã khởi động chưa
+2. Database đã được tạo và import chưa
+3. File config/database.php có đúng thông tin không
+4. PHP error log trong XAMPP
+
